@@ -24,7 +24,7 @@ Simply open the `index.html` file in any modern web browser, or serve it locally
 ```bash
 python -m http.server 8000
 ```
-Then navigate to `http://localhost:8000/` in your browser.
+Then navigate to `https://portfolio-website-using-only-html.vercel.app/` in your browser.
 
 ## Author
 * **Aayush Kumar Sinha** - Student at GITAM Deemed University
