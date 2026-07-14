@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Understanding the Controller component in MVC architecture — its definition, responsibilities, and a step-by-step workflow of request processing.">
+    <title>Controller — MVC Architecture Demonstration</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header>
+        <h1>MVC Architecture Demonstration</h1>
+        <p>Understanding the Model-View-Controller Design Pattern</p>
+    </header>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="model.html">Model</a></li>
+            <li><a href="view.html">View</a></li>
+            <li><a href="controller.html">Controller</a></li>
+        </ul>
+    </nav>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main>
+
+        <section>
+            <h2>The Controller Component</h2>
+            <p>
+                You are currently viewing the <strong>Controller</strong> layer of the MVC architecture.
+                The Controller is the brain of the operation — it coordinates all interactions between
+                the View and the Model, processing user requests and determining the appropriate response.
+            </p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Definition of the Controller</h2>
+            <p>
+                The <strong>Controller</strong> is the <em>intermediary layer</em> of the MVC architecture.
+                It acts as the bridge between the Model (data layer) and the View (presentation layer),
+                orchestrating the flow of data and control within the application.
+            </p>
+            <p>
+                When a user interacts with the View — whether by clicking a button, submitting a form,
+                or navigating to a URL — the Controller receives that request, interprets it, invokes
+                the appropriate operations on the Model, and then selects the correct View to render
+                the response. Think of the Controller as the <em>traffic manager</em> of the application.
+            </p>
+            <p>
+                The Controller contains <strong>application logic</strong> (also called procedural or
+                workflow logic) but <strong>not business logic</strong> (which belongs in the Model)
+                and <strong>not presentation logic</strong> (which belongs in the View). Its role is
+                to coordinate and delegate — not to compute or display.
+            </p>
+            <p>
+                In web development, Controllers commonly correspond to:
+            </p>
+            <ul>
+                <li><strong>Route handlers</strong> in Express.js (Node.js)</li>
+                <li><strong>Controller classes</strong> in Laravel (PHP), ASP.NET MVC (C#), or Spring MVC (Java)</li>
+                <li><strong>View functions or class-based views</strong> in Django (Python)</li>
+                <li><strong>Actions</strong> in Ruby on Rails</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Responsibilities of the Controller</h2>
+            <p>The Controller component carries the following key responsibilities in an MVC application:</p>
+
+            <ol>
+                <li>
+                    <strong>Receiving and Interpreting User Input:</strong>
+                    The Controller is the first point of contact after the user performs an action in the View.
+                    It receives HTTP requests (in web apps), button events, or command inputs and interprets
+                    what the user intends to do.
+                </li>
+                <li>
+                    <strong>Validating Input:</strong>
+                    Before passing data to the Model, the Controller performs initial input validation —
+                    checking that required parameters are present, data types are correct, and requests
+                    are well-formed. (Deep business validation is still the Model's responsibility.)
+                </li>
+                <li>
+                    <strong>Invoking Model Operations:</strong>
+                    Based on the user's request, the Controller calls the appropriate methods on the Model —
+                    such as fetching records, creating a new entity, updating an existing one, or deleting data.
+                </li>
+                <li>
+                    <strong>Processing Model Responses:</strong>
+                    After the Model returns data or a result, the Controller processes this response
+                    if necessary — for example, preparing data structures, handling errors or exceptions,
+                    or setting session variables.
+                </li>
+                <li>
+                    <strong>Selecting and Rendering the View:</strong>
+                    The Controller decides which View to present to the user based on the outcome of the
+                    request. A successful login might redirect to the Dashboard View; a failed login might
+                    re-render the Login View with an error message.
+                </li>
+                <li>
+                    <strong>Passing Data to the View:</strong>
+                    The Controller passes the relevant Model data to the chosen View so it can be rendered.
+                    In web frameworks, this is done by passing variables (a "context" or "model") to the
+                    template engine.
+                </li>
+                <li>
+                    <strong>Managing Application Flow and Routing:</strong>
+                    The Controller manages the application's navigation logic — determining which page
+                    to load, whether to redirect the user after an action, or whether to show a specific
+                    partial view within a larger page.
+                </li>
+                <li>
+                    <strong>Handling Authentication and Authorization Checks:</strong>
+                    Before processing a request, the Controller often checks whether the user is
+                    authenticated (logged in) and authorized (has permission) to perform the requested
+                    action. Unauthorized requests are rejected or redirected.
+                </li>
+                <li>
+                    <strong>Error Handling:</strong>
+                    When something goes wrong (e.g., a database error, a resource not found, or an
+                    unauthorized action), the Controller catches these errors and returns an appropriate
+                    error response or error View to the user.
+                </li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Workflow: How the Controller Processes a User Request</h2>
+            <p>
+                The following is a detailed, step-by-step workflow illustrating how the Controller
+                processes a typical user request in a web-based MVC application. The example scenario
+                used is a user searching for products on an e-commerce website.
+            </p>
+
+            <article>
+                <h3>Scenario: User Searches for "Laptop" on an E-Commerce Site</h3>
+
+                <h4>Step 1 — User Action (View Layer)</h4>
+                <p>
+                    The user types "Laptop" into the search bar on the website and clicks the
+                    <strong>Search</strong> button. The View captures this input and sends an
+                    HTTP GET request to the server:
+                </p>
+                <pre>
+GET /search?query=Laptop HTTP/1.1
+Host: www.example-ecommerce.com
+                </pre>
+
+                <h4>Step 2 — Request Received by the Controller</h4>
+                <p>
+                    The application's routing system maps the incoming URL
+                    <code>/search</code> to the <strong>ProductController</strong>'s
+                    <code>search()</code> method. The Controller is now in control.
+                </p>
+                <p>
+                    <em>Controller Action: ProductController &rarr; search()</em>
+                </p>
+
+                <h4>Step 3 — Controller Validates the Input</h4>
+                <p>
+                    The Controller checks the incoming request parameters:
+                </p>
+                <ul>
+                    <li>Is the <code>query</code> parameter present? <strong>Yes</strong> — "Laptop"</li>
+                    <li>Is it a non-empty string? <strong>Yes</strong></li>
+                    <li>Does it meet the minimum length requirement (e.g., at least 2 characters)? <strong>Yes</strong></li>
+                    <li>Does it contain any disallowed characters (e.g., SQL injection patterns)? <strong>No</strong> — it is safe</li>
+                </ul>
+                <p>Input validation passes. The Controller proceeds to query the Model.</p>
+
+                <h4>Step 4 — Controller Checks Authorization (if applicable)</h4>
+                <p>
+                    In this case, product search is available to all users (including guests), so no
+                    authentication check is required. The Controller proceeds without restriction.
+                </p>
+                <p>
+                    If the feature required a logged-in user (e.g., viewing order history), the Controller
+                    would check the session for an authenticated user and redirect to the login page if none
+                    was found.
+                </p>
+
+                <h4>Step 5 — Controller Calls the Model</h4>
+                <p>
+                    The Controller calls the appropriate method on the <strong>Product Model</strong>:
+                </p>
+                <pre>
+$products = ProductModel::search(query: "Laptop", limit: 20, sortBy: "relevance");
+                </pre>
+                <p>
+                    The Controller passes the sanitized search term to the Model and requests results.
+                    It does not know <em>how</em> the Model retrieves the data (SQL query, API call,
+                    cache lookup) — it only knows what to ask for.
+                </p>
+
+                <h4>Step 6 — Model Executes the Query</h4>
+                <p>
+                    The <strong>Product Model</strong> receives the search request and executes the
+                    appropriate database query or search engine query:
+                </p>
+                <pre>
+SELECT * FROM products
+WHERE name LIKE '%Laptop%' OR description LIKE '%Laptop%'
+ORDER BY relevance_score DESC
+LIMIT 20;
+                </pre>
+                <p>
+                    The Model applies any business rules (e.g., only return products that are in stock
+                    and not discontinued) and returns a result set to the Controller.
+                </p>
+
+                <h4>Step 7 — Model Returns Data to the Controller</h4>
+                <p>
+                    The Model returns a collection of matching Product objects, each containing:
+                </p>
+                <ul>
+                    <li>Product ID, Name, Description</li>
+                    <li>Price and Discount</li>
+                    <li>Stock Status</li>
+                    <li>Image URL</li>
+                    <li>Average Rating</li>
+                </ul>
+                <p>
+                    The Controller receives this data. In this case, 14 matching products were found.
+                </p>
+
+                <h4>Step 8 — Controller Prepares Data for the View</h4>
+                <p>
+                    The Controller packages the data into a format suitable for the View:
+                </p>
+                <ul>
+                    <li>Sets a <code>products</code> variable containing the 14 product records</li>
+                    <li>Sets a <code>search_query</code> variable = "Laptop" (to display in the results heading)</li>
+                    <li>Sets a <code>result_count</code> variable = 14</li>
+                    <li>Sets a <code>page_title</code> variable = "Search Results for 'Laptop'"</li>
+                </ul>
+
+                <h4>Step 9 — Controller Selects and Renders the View</h4>
+                <p>
+                    The Controller selects the <strong>search-results.html</strong> View template and
+                    passes the prepared data to it:
+                </p>
+                <pre>
+return render(template: "search-results.html", context: {
+    products: $products,
+    search_query: "Laptop",
+    result_count: 14,
+    page_title: "Search Results for 'Laptop'"
+});
+                </pre>
+
+                <h4>Step 10 — View Renders the Response</h4>
+                <p>
+                    The View template receives the data from the Controller and renders the HTML page
+                    dynamically. The user sees:
+                </p>
+                <ul>
+                    <li>A heading: <em>"Showing 14 results for 'Laptop'"</em></li>
+                    <li>A grid of 14 product cards, each showing the product name, image, price, and an "Add to Cart" button</li>
+                    <li>Sort and filter options</li>
+                    <li>Pagination controls (if more than 20 results)</li>
+                </ul>
+
+                <h4>Step 11 — HTTP Response Delivered to User's Browser</h4>
+                <p>
+                    The fully rendered HTML page is sent back to the user's browser as an HTTP 200 OK
+                    response. The user now sees the search results page with the 14 laptop products.
+                </p>
+                <p>The entire request-response cycle is complete.</p>
+            </article>
+
+            <hr>
+
+            <article>
+                <h3>Summary of the Request-Processing Workflow</h3>
+                <p>The following ordered list summarizes the complete MVC request workflow:</p>
+                <ol>
+                    <li><strong>[View]</strong> User performs an action (click, form submit, URL navigation)</li>
+                    <li><strong>[View &rarr; Controller]</strong> HTTP request is sent to the server and routed to the correct Controller</li>
+                    <li><strong>[Controller]</strong> Input is received, parsed, and validated</li>
+                    <li><strong>[Controller]</strong> Authentication and authorization checks are performed</li>
+                    <li><strong>[Controller &rarr; Model]</strong> Controller calls Model methods to fetch or modify data</li>
+                    <li><strong>[Model]</strong> Business logic is applied; database or data source is queried</li>
+                    <li><strong>[Model &rarr; Controller]</strong> Model returns data or confirmation to the Controller</li>
+                    <li><strong>[Controller]</strong> Response data is prepared and packaged</li>
+                    <li><strong>[Controller &rarr; View]</strong> Controller selects the appropriate View and passes data to it</li>
+                    <li><strong>[View]</strong> View renders the data into a human-readable HTML response</li>
+                    <li><strong>[View &rarr; User]</strong> Rendered page is delivered to the user's browser</li>
+                </ol>
+            </article>
+
+            <hr>
+
+            <article>
+                <h3>Alternative Workflow: Error Scenario</h3>
+                <p>
+                    What happens when something goes wrong? Here is how the Controller handles an error case —
+                    for example, a user tries to access a product page for a product that no longer exists.
+                </p>
+                <ol>
+                    <li><strong>[View]</strong> User clicks a link to <code>/products/9999</code></li>
+                    <li><strong>[Controller]</strong> ProductController's <code>show(id: 9999)</code> method is invoked</li>
+                    <li><strong>[Controller &rarr; Model]</strong> Controller calls <code>ProductModel::findById(9999)</code></li>
+                    <li><strong>[Model]</strong> No record found; Model returns <code>null</code> or throws a "Not Found" exception</li>
+                    <li><strong>[Controller]</strong> Controller catches the null/exception and determines the appropriate response</li>
+                    <li><strong>[Controller &rarr; View]</strong> Controller selects the <code>404-not-found.html</code> error View</li>
+                    <li><strong>[View &rarr; User]</strong> A friendly "404 - Product Not Found" page is rendered and returned to the user with an HTTP 404 status code</li>
+                </ol>
+                <p>
+                    This demonstrates how the Controller gracefully handles errors without exposing
+                    raw database errors or stack traces to the end user.
+                </p>
+            </article>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Key Characteristics of a Well-Designed Controller</h2>
+            <ul>
+                <li><strong>Thin:</strong> A good Controller is "thin" — it delegates work to the Model and View rather than doing it itself. Heavy business logic in the Controller is an anti-pattern known as a "Fat Controller."</li>
+                <li><strong>Stateless (in web apps):</strong> Each request is processed independently. State is managed by sessions or the Model, not stored in the Controller itself.</li>
+                <li><strong>Single Responsibility:</strong> Each Controller action should have one clear purpose (e.g., show a list, show a detail, handle a form submission).</li>
+                <li><strong>Decoupled:</strong> The Controller depends on abstract Model interfaces rather than concrete implementations, making it easier to swap out data sources.</li>
+                <li><strong>Testable:</strong> Controller actions can be tested by simulating HTTP requests and asserting on the response without needing a real browser.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Navigate to Other Components</h2>
+            <ul>
+                <li><a href="view.html">&larr; Previous: View Component</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="model.html">Model Component</a></li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <hr>
+        <p>&copy; 2026 MVC Architecture Demonstration. All rights reserved.</p>
+        <p>Created as an educational resource for understanding software design patterns.</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="model.html">Model</a></li>
+                <li><a href="view.html">View</a></li>
+                <li><a href="controller.html">Controller</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+</body>
+</html>

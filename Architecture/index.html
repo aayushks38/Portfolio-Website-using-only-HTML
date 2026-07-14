@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A demonstration of the Model-View-Controller (MVC) architecture pattern using HTML.">
+    <title>MVC Architecture Demonstration - Home</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header>
+        <h1>MVC Architecture Demonstration</h1>
+        <p>Understanding the Model-View-Controller Design Pattern</p>
+    </header>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="model.html">Model</a></li>
+            <li><a href="view.html">View</a></li>
+            <li><a href="controller.html">Controller</a></li>
+        </ul>
+    </nav>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main>
+
+        <section>
+            <h2>Welcome to the MVC Architecture Guide</h2>
+            <p>
+                This website provides a conceptual overview of the <strong>Model-View-Controller (MVC)</strong>
+                architecture — one of the most widely used software design patterns in modern application development.
+                Navigate through the sections below to learn about each component in detail.
+            </p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>What is MVC?</h2>
+            <p>
+                <strong>Model-View-Controller (MVC)</strong> is a software architectural pattern that separates an
+                application into three interconnected components. This separation helps manage complexity, promotes
+                organized code, and makes applications easier to maintain and scale.
+            </p>
+            <p>
+                Originally described in the context of Smalltalk programming, MVC has become the dominant
+                architectural pattern for building user-facing applications — from desktop GUIs to modern web
+                frameworks like Ruby on Rails, Django, ASP.NET MVC, and Laravel.
+            </p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>The Three Components of MVC</h2>
+
+            <article>
+                <h3>1. Model</h3>
+                <p>
+                    The <strong>Model</strong> is the data layer of the application. It represents the
+                    application's data, business logic, and rules. The Model directly manages the data,
+                    logic, and rules of the application without any knowledge of the user interface.
+                </p>
+                <p><a href="model.html">Learn more about the Model &rarr;</a></p>
+            </article>
+
+            <article>
+                <h3>2. View</h3>
+                <p>
+                    The <strong>View</strong> is the presentation layer. It is responsible for rendering
+                    the user interface and displaying data from the Model in a way that users can interact
+                    with. The View is what the end-user actually sees on screen.
+                </p>
+                <p><a href="view.html">Learn more about the View &rarr;</a></p>
+            </article>
+
+            <article>
+                <h3>3. Controller</h3>
+                <p>
+                    The <strong>Controller</strong> acts as the intermediary between the Model and the View.
+                    It receives user input from the View, processes it (often by updating the Model), and
+                    returns the appropriate View to the user.
+                </p>
+                <p><a href="controller.html">Learn more about the Controller &rarr;</a></p>
+            </article>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>How the Components Interact</h2>
+            <p>The following illustrates the flow of interaction in an MVC application:</p>
+            <ol>
+                <li><strong>User</strong> interacts with the <strong>View</strong> (e.g., clicks a button or submits a form).</li>
+                <li>The <strong>View</strong> forwards the user action to the <strong>Controller</strong>.</li>
+                <li>The <strong>Controller</strong> processes the request and communicates with the <strong>Model</strong>.</li>
+                <li>The <strong>Model</strong> performs business logic and updates or retrieves data.</li>
+                <li>The updated data is sent back to the <strong>Controller</strong>.</li>
+                <li>The <strong>Controller</strong> selects the appropriate <strong>View</strong> to display the result.</li>
+                <li>The <strong>View</strong> renders the updated data for the <strong>User</strong>.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Why Use MVC?</h2>
+            <ul>
+                <li><strong>Separation of Concerns:</strong> Each component has a distinct responsibility, making the codebase cleaner and easier to understand.</li>
+                <li><strong>Maintainability:</strong> Changes to one component have minimal impact on others.</li>
+                <li><strong>Reusability:</strong> Models and Views can be reused across different parts of an application.</li>
+                <li><strong>Testability:</strong> Components can be tested independently, improving software quality.</li>
+                <li><strong>Parallel Development:</strong> Teams can work on the Model, View, and Controller simultaneously.</li>
+                <li><strong>Scalability:</strong> The architecture scales well as applications grow in complexity.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Explore Each Component</h2>
+            <p>Use the navigation menu above or the links below to explore each MVC component:</p>
+            <ul>
+                <li><a href="model.html">Model — The Data Layer</a></li>
+                <li><a href="view.html">View — The Presentation Layer</a></li>
+                <li><a href="controller.html">Controller — The Logic Layer</a></li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <hr>
+        <p>&copy; 2026 MVC Architecture Demonstration. All rights reserved.</p>
+        <p>Created as an educational resource for understanding software design patterns.</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="model.html">Model</a></li>
+                <li><a href="view.html">View</a></li>
+                <li><a href="controller.html">Controller</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+</body>
+</html>

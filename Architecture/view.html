@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Understanding the View component in MVC architecture — its definition, responsibilities, and examples of user interface elements.">
+    <title>View — MVC Architecture Demonstration</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header>
+        <h1>MVC Architecture Demonstration</h1>
+        <p>Understanding the Model-View-Controller Design Pattern</p>
+    </header>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="model.html">Model</a></li>
+            <li><a href="view.html">View</a></li>
+            <li><a href="controller.html">Controller</a></li>
+        </ul>
+    </nav>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main>
+
+        <section>
+            <h2>The View Component</h2>
+            <p>
+                You are currently viewing the <strong>View</strong> layer of the MVC architecture.
+                The View is the face of the application — the part that users interact with directly.
+                It is responsible for presenting data to the user in a clear, organized, and
+                accessible manner.
+            </p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Definition of the View</h2>
+            <p>
+                The <strong>View</strong> is the <em>presentation layer</em> of the MVC architecture.
+                It is the output representation of information — anything the user sees on screen,
+                hears as audio feedback, or interacts with through input controls belongs to the View.
+            </p>
+            <p>
+                The View retrieves data from the Model (typically via the Controller) and renders it
+                in a human-readable format. It does <strong>not</strong> contain any business logic or
+                data manipulation code. Its sole responsibility is <em>how</em> to display information,
+                not <em>what</em> information to display or how to process it.
+            </p>
+            <p>
+                In web development, the View is commonly implemented using:
+            </p>
+            <ul>
+                <li><strong>HTML</strong> — for structure and semantic meaning</li>
+                <li><strong>CSS</strong> — for styling and visual presentation</li>
+                <li><strong>Templating Engines</strong> — such as Jinja2, Blade, ERB, or Handlebars, which dynamically insert Model data into HTML templates</li>
+                <li><strong>JavaScript (front-end frameworks)</strong> — such as React, Vue, or Angular, which manage dynamic rendering in the browser</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Responsibilities of the View</h2>
+            <p>The View component is responsible for the following:</p>
+
+            <ol>
+                <li>
+                    <strong>Rendering Data:</strong>
+                    The View takes data provided by the Controller and renders it visually for the user.
+                    For example, it displays a list of products, a user's profile, or a dashboard with
+                    statistics.
+                </li>
+                <li>
+                    <strong>Presenting the User Interface (UI):</strong>
+                    The View constructs all visual elements — layouts, forms, buttons, tables, images,
+                    menus — that make up the application's interface.
+                </li>
+                <li>
+                    <strong>Receiving User Input:</strong>
+                    The View provides input mechanisms (forms, buttons, links, dropdowns) through which
+                    users interact with the application. However, it <em>does not process</em> that
+                    input — it simply passes it to the Controller.
+                </li>
+                <li>
+                    <strong>Displaying Feedback and Status:</strong>
+                    The View shows notifications, success messages, error alerts, loading indicators,
+                    and validation feedback to keep the user informed of the application's current state.
+                </li>
+                <li>
+                    <strong>Maintaining Display Logic Only:</strong>
+                    The View may contain minimal display logic — such as conditionally showing or hiding
+                    elements based on data (e.g., show an "Edit" button only if the user is an admin) —
+                    but it must never contain business rules or data processing.
+                </li>
+                <li>
+                    <strong>Supporting Multiple Representations:</strong>
+                    The same Model data can be presented by different Views. For example, a product can
+                    be shown in a grid View (for browsing), a detail View (for product page), or a
+                    printable View (for invoices). This is a key advantage of separating View from Model.
+                </li>
+                <li>
+                    <strong>Accessibility and Responsiveness:</strong>
+                    A well-designed View ensures the interface is accessible to all users (using semantic
+                    HTML, ARIA labels, keyboard navigation) and responsive across different screen sizes
+                    and devices.
+                </li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Examples of User Interface Elements in the View</h2>
+            <p>
+                The following section showcases various categories of user interface (UI) elements
+                that are typically rendered by the View component. These elements are built using
+                standard HTML5 and represent common patterns found in real-world web applications.
+            </p>
+
+            <article>
+                <h3>Example 1 — Navigation and Menus</h3>
+                <p>
+                    Navigation elements allow users to move between different sections of the application.
+                    They are a fundamental part of every View.
+                </p>
+                <ul>
+                    <li><strong>Top Navigation Bar:</strong> Links to main sections (Home, About, Products, Contact)</li>
+                    <li><strong>Sidebar Menu:</strong> A vertical menu for sub-section navigation</li>
+                    <li><strong>Breadcrumb Trail:</strong> Shows the user's current location within the site hierarchy (e.g., Home &gt; Products &gt; Electronics &gt; Laptops)</li>
+                    <li><strong>Footer Navigation:</strong> Links to legal pages, social media, and secondary sections</li>
+                    <li><strong>Tab Navigation:</strong> Horizontal tabs for switching between related views (e.g., Overview, Reviews, Specifications)</li>
+                </ul>
+                <p><em>HTML elements used: &lt;nav&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;a&gt;</em></p>
+            </article>
+
+            <article>
+                <h3>Example 2 — Forms and Input Controls</h3>
+                <p>
+                    Forms are the primary mechanism through which users submit data to the application.
+                    The View renders forms; the Controller handles their submission.
+                </p>
+                <ul>
+                    <li><strong>Text Input:</strong> For entering names, email addresses, search queries</li>
+                    <li><strong>Password Input:</strong> For secure credential entry (characters are hidden)</li>
+                    <li><strong>Textarea:</strong> For multi-line text such as comments or descriptions</li>
+                    <li><strong>Checkbox:</strong> For selecting one or more options (e.g., terms &amp; conditions, preferences)</li>
+                    <li><strong>Radio Button:</strong> For selecting exactly one option from a group (e.g., gender, payment method)</li>
+                    <li><strong>Dropdown Select:</strong> For choosing from a list of predefined options (e.g., country, category)</li>
+                    <li><strong>Date Picker:</strong> For selecting a date (e.g., appointment booking, date of birth)</li>
+                    <li><strong>File Upload:</strong> For attaching documents, images, or other files</li>
+                    <li><strong>Submit Button:</strong> Triggers form submission to the Controller</li>
+                    <li><strong>Reset Button:</strong> Clears all form fields back to default values</li>
+                </ul>
+                <p><em>HTML elements used: &lt;form&gt;, &lt;input&gt;, &lt;textarea&gt;, &lt;select&gt;, &lt;option&gt;, &lt;button&gt;, &lt;label&gt;, &lt;fieldset&gt;, &lt;legend&gt;</em></p>
+            </article>
+
+            <article>
+                <h3>Example 3 — Data Display Elements</h3>
+                <p>
+                    The View uses various HTML elements to display Model data in a structured, readable format.
+                </p>
+                <ul>
+                    <li><strong>Tables:</strong> For displaying structured data in rows and columns (e.g., student results, order history, comparison charts)</li>
+                    <li><strong>Lists:</strong> Ordered (&lt;ol&gt;) for sequential items, Unordered (&lt;ul&gt;) for non-sequential items, and Definition Lists (&lt;dl&gt;) for term-definition pairs</li>
+                    <li><strong>Cards:</strong> Block elements grouping related information (e.g., a product card showing image, name, price, and a buy button)</li>
+                    <li><strong>Data Grids:</strong> Responsive grid layouts for displaying multiple records simultaneously</li>
+                    <li><strong>Key-Value Pairs:</strong> Used in detail pages (e.g., "Author: Jane Doe", "Published: 01 Jan 2024")</li>
+                    <li><strong>Paginated Listings:</strong> Displaying records across multiple pages with "Previous" and "Next" links</li>
+                </ul>
+                <p><em>HTML elements used: &lt;table&gt;, &lt;thead&gt;, &lt;tbody&gt;, &lt;tr&gt;, &lt;th&gt;, &lt;td&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;dl&gt;, &lt;dt&gt;, &lt;dd&gt;, &lt;article&gt;, &lt;section&gt;</em></p>
+            </article>
+
+            <article>
+                <h3>Example 4 — Notification and Feedback Elements</h3>
+                <p>
+                    The View informs the user of the result of their actions or the current state of the system.
+                </p>
+                <ul>
+                    <li><strong>Success Message:</strong> Confirms a successful action (e.g., "Your profile has been updated successfully.")</li>
+                    <li><strong>Error Message:</strong> Informs the user of a failure (e.g., "Invalid username or password.")</li>
+                    <li><strong>Warning Banner:</strong> Alerts the user to a potential issue (e.g., "Your session is about to expire.")</li>
+                    <li><strong>Informational Notice:</strong> Provides helpful context (e.g., "This field is optional.")</li>
+                    <li><strong>Validation Inline Errors:</strong> Shown next to individual form fields when input is invalid</li>
+                    <li><strong>Empty State Message:</strong> Shown when a list or section has no data (e.g., "You have no notifications.")</li>
+                    <li><strong>Loading Indicator:</strong> Signals that data is being fetched or processed</li>
+                </ul>
+                <p><em>HTML elements used: &lt;p&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;aside&gt;, &lt;div&gt; with semantic roles</em></p>
+            </article>
+
+            <article>
+                <h3>Example 5 — Media and Visual Elements</h3>
+                <p>
+                    The View renders visual and multimedia content to enrich the user experience.
+                </p>
+                <ul>
+                    <li><strong>Images:</strong> Product photos, user profile pictures, banners, and thumbnails</li>
+                    <li><strong>Image Gallery / Carousel:</strong> Multiple images displayed with navigation controls</li>
+                    <li><strong>Video Player:</strong> Embedded video content (e.g., product demos, tutorials)</li>
+                    <li><strong>Audio Player:</strong> For playback of audio content (e.g., podcasts, music)</li>
+                    <li><strong>Icons:</strong> Small graphical symbols that convey meaning (e.g., a trash icon for delete, a pencil for edit)</li>
+                    <li><strong>Charts and Graphs:</strong> Visual representation of data trends and statistics (e.g., bar charts, pie charts in admin dashboards)</li>
+                    <li><strong>Maps:</strong> Embedded geographical maps for location-based information</li>
+                    <li><strong>Progress Bars:</strong> Visual indicators showing completion percentage (e.g., file upload progress, profile completion)</li>
+                </ul>
+                <p><em>HTML elements used: &lt;img&gt;, &lt;figure&gt;, &lt;figcaption&gt;, &lt;video&gt;, &lt;audio&gt;, &lt;source&gt;, &lt;svg&gt;, &lt;canvas&gt;, &lt;iframe&gt;, &lt;progress&gt;, &lt;meter&gt;</em></p>
+            </article>
+
+            <article>
+                <h3>Example 6 — Interactive Action Elements</h3>
+                <p>
+                    The View provides controls that allow users to trigger actions, which are then passed to the Controller.
+                </p>
+                <ul>
+                    <li><strong>Action Buttons:</strong> "Add to Cart", "Delete", "Edit", "Confirm", "Cancel"</li>
+                    <li><strong>Toggle Switches:</strong> For enabling/disabling settings (e.g., notification preferences, dark mode)</li>
+                    <li><strong>Pagination Controls:</strong> "First", "Previous", "Page 1", "Page 2", "Next", "Last"</li>
+                    <li><strong>Sort and Filter Controls:</strong> Dropdowns or links to sort data (e.g., "Sort by: Price Low to High") or filter results</li>
+                    <li><strong>Search Bar:</strong> A text input with a submit button to query data from the Model</li>
+                    <li><strong>Like / Favorite / Rating:</strong> Elements for user feedback on content</li>
+                    <li><strong>Accordion / Collapsible Sections:</strong> Expandable sections for FAQ pages or detailed information</li>
+                </ul>
+                <p><em>HTML elements used: &lt;button&gt;, &lt;a&gt;, &lt;input type="checkbox"&gt;, &lt;details&gt;, &lt;summary&gt;</em></p>
+            </article>
+
+            <article>
+                <h3>Example 7 — Layout and Structural Elements</h3>
+                <p>
+                    The overall page structure (layout) is defined by the View to organize all UI elements logically.
+                </p>
+                <ul>
+                    <li><strong>Page Header:</strong> Contains the application logo, title, and top-level navigation</li>
+                    <li><strong>Hero Section:</strong> A prominent introductory area, typically with a headline, description, and call-to-action button</li>
+                    <li><strong>Sidebar:</strong> A secondary content area alongside the main content (e.g., filters, related links)</li>
+                    <li><strong>Main Content Area:</strong> The primary section where the core data or functionality is displayed</li>
+                    <li><strong>Modal / Dialog:</strong> An overlay window for confirmations, forms, or additional detail without leaving the page</li>
+                    <li><strong>Page Footer:</strong> Contains copyright information, secondary links, and contact details</li>
+                    <li><strong>Grid / Column Layout:</strong> Multi-column arrangements for dashboards and content-heavy pages</li>
+                </ul>
+                <p><em>HTML elements used: &lt;header&gt;, &lt;main&gt;, &lt;aside&gt;, &lt;section&gt;, &lt;article&gt;, &lt;footer&gt;, &lt;div&gt;, &lt;dialog&gt;</em></p>
+            </article>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Key Characteristics of a Well-Designed View</h2>
+            <ul>
+                <li><strong>Passive:</strong> The View only displays data — it does not change or compute it.</li>
+                <li><strong>Interchangeable:</strong> Multiple Views can represent the same Model data differently (web page, PDF export, email template, mobile app UI).</li>
+                <li><strong>User-Centric:</strong> Designed with the user's needs and accessibility in mind.</li>
+                <li><strong>Decoupled:</strong> Has no direct knowledge of business logic or database operations.</li>
+                <li><strong>Composable:</strong> Built from reusable components (headers, cards, forms) that can be assembled into complete pages.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Navigate to Other Components</h2>
+            <ul>
+                <li><a href="model.html">&larr; Previous: Model Component</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="controller.html">Next: Controller Component &rarr;</a></li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <hr>
+        <p>&copy; 2026 MVC Architecture Demonstration. All rights reserved.</p>
+        <p>Created as an educational resource for understanding software design patterns.</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="model.html">Model</a></li>
+                <li><a href="view.html">View</a></li>
+                <li><a href="controller.html">Controller</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+</body>
+</html>

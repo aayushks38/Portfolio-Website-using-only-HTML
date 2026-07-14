@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Understanding the Model component in MVC architecture — its definition, responsibilities, and examples of data it manages.">
+    <title>Model — MVC Architecture Demonstration</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header>
+        <h1>MVC Architecture Demonstration</h1>
+        <p>Understanding the Model-View-Controller Design Pattern</p>
+    </header>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="model.html">Model</a></li>
+            <li><a href="view.html">View</a></li>
+            <li><a href="controller.html">Controller</a></li>
+        </ul>
+    </nav>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main>
+
+        <section>
+            <h2>The Model Component</h2>
+            <p>
+                You are currently viewing the <strong>Model</strong> layer of the MVC architecture.
+                The Model is the backbone of any MVC-based application, responsible for managing
+                data, enforcing business rules, and maintaining the state of the application.
+            </p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Definition of the Model</h2>
+            <p>
+                The <strong>Model</strong> is the central component of the MVC pattern. It is the
+                application's <em>dynamic data structure</em>, independent of the user interface. The
+                Model directly manages the data, logic, and rules of the application.
+            </p>
+            <p>
+                In practical terms, the Model represents the real-world objects and concepts of the
+                application domain. For example, in an e-commerce application, the Model would include
+                entities such as <em>Product</em>, <em>Order</em>, <em>Customer</em>, and
+                <em>Payment</em>. Each of these entities encapsulates data and the rules that govern
+                how that data can be used or modified.
+            </p>
+            <p>
+                The Model does <strong>not</strong> contain any presentation logic (that belongs to
+                the View) and does <strong>not</strong> handle user input directly (that is the
+                Controller's job). Its sole concern is the integrity and management of application data.
+            </p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Responsibilities of the Model</h2>
+            <p>The Model component carries several critical responsibilities within the MVC architecture:</p>
+
+            <ol>
+                <li>
+                    <strong>Data Storage and Retrieval:</strong>
+                    The Model is responsible for storing application data (in memory, a database, or external
+                    APIs) and retrieving it when requested by the Controller.
+                </li>
+                <li>
+                    <strong>Business Logic Enforcement:</strong>
+                    The Model contains the business rules that govern how data can be created, read, updated,
+                    or deleted (CRUD). For example, it might enforce that a user's age must be over 18 to
+                    register, or that a product's price cannot be negative.
+                </li>
+                <li>
+                    <strong>Data Validation:</strong>
+                    Before data is persisted or used, the Model validates it to ensure it meets required
+                    constraints (e.g., required fields, correct data types, uniqueness constraints).
+                </li>
+                <li>
+                    <strong>State Management:</strong>
+                    The Model maintains the current state of the application's data. When data changes
+                    (e.g., a user updates their profile), the Model reflects those changes and notifies
+                    the Controller accordingly.
+                </li>
+                <li>
+                    <strong>Data Relationships:</strong>
+                    The Model manages the relationships between different data entities — for example,
+                    associating Orders with Customers, or Products with Categories.
+                </li>
+                <li>
+                    <strong>Abstraction of Data Source:</strong>
+                    The Model abstracts the underlying data source (relational database, NoSQL store,
+                    external API, etc.) from the rest of the application, allowing the data layer to
+                    change without affecting the Controller or View.
+                </li>
+                <li>
+                    <strong>Notification of Changes:</strong>
+                    In some implementations (especially Observer-based MVC), the Model notifies registered
+                    observers (typically the View or Controller) when its state changes, enabling a
+                    reactive update cycle.
+                </li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Examples of Data Managed by the Model</h2>
+            <p>
+                The following are at least five concrete examples of the types of data that a Model
+                component would manage in various real-world applications:
+            </p>
+
+            <article>
+                <h3>Example 1 — User Account Data</h3>
+                <p>
+                    In any application with user authentication, the Model manages user account records.
+                    This includes:
+                </p>
+                <ul>
+                    <li>User ID (unique identifier)</li>
+                    <li>Full name</li>
+                    <li>Email address</li>
+                    <li>Hashed password</li>
+                    <li>Account creation date</li>
+                    <li>Role or permission level (e.g., Admin, Editor, Viewer)</li>
+                    <li>Profile picture URL</li>
+                </ul>
+                <p><em>Example Application: Social media platform, banking app, e-learning portal</em></p>
+            </article>
+
+            <article>
+                <h3>Example 2 — Product Catalog Data</h3>
+                <p>
+                    In an e-commerce application, the Model manages the product catalog:
+                </p>
+                <ul>
+                    <li>Product ID</li>
+                    <li>Product name and description</li>
+                    <li>Price and discount percentage</li>
+                    <li>Stock quantity</li>
+                    <li>Category and subcategory</li>
+                    <li>Product images and media</li>
+                    <li>SKU (Stock Keeping Unit) code</li>
+                    <li>Supplier information</li>
+                </ul>
+                <p><em>Example Application: Online shopping sites such as Amazon or Flipkart</em></p>
+            </article>
+
+            <article>
+                <h3>Example 3 — Order and Transaction Data</h3>
+                <p>
+                    The Model tracks purchase orders and financial transactions:
+                </p>
+                <ul>
+                    <li>Order ID</li>
+                    <li>Customer reference (linked to User Account Data)</li>
+                    <li>List of items ordered (linked to Product Catalog Data)</li>
+                    <li>Quantity per item</li>
+                    <li>Total price and tax</li>
+                    <li>Payment method and status (Pending, Completed, Failed, Refunded)</li>
+                    <li>Shipping address</li>
+                    <li>Order date and estimated delivery date</li>
+                </ul>
+                <p><em>Example Application: E-commerce checkout systems, ERP software</em></p>
+            </article>
+
+            <article>
+                <h3>Example 4 — Blog Post / Article Data</h3>
+                <p>
+                    In a content management system (CMS), the Model manages article data:
+                </p>
+                <ul>
+                    <li>Post ID</li>
+                    <li>Title and slug (URL-friendly version of the title)</li>
+                    <li>Author reference</li>
+                    <li>Body content (text, HTML, or Markdown)</li>
+                    <li>Tags and categories</li>
+                    <li>Published status (Draft, Published, Archived)</li>
+                    <li>Publication date and last modified date</li>
+                    <li>View count and comment count</li>
+                </ul>
+                <p><em>Example Application: WordPress, Ghost, Medium-like blogging platforms</em></p>
+            </article>
+
+            <article>
+                <h3>Example 5 — Student Academic Record Data</h3>
+                <p>
+                    In a student management system, the Model manages academic records:
+                </p>
+                <ul>
+                    <li>Student ID and enrollment number</li>
+                    <li>Student name and date of birth</li>
+                    <li>Enrolled courses and subjects</li>
+                    <li>Grades and marks per subject</li>
+                    <li>Attendance percentage</li>
+                    <li>Semester and year of study</li>
+                    <li>Fee payment status</li>
+                    <li>Contact information and guardian details</li>
+                </ul>
+                <p><em>Example Application: University portals, school management systems</em></p>
+            </article>
+
+            <article>
+                <h3>Example 6 — Inventory and Warehouse Data</h3>
+                <p>
+                    In a logistics and inventory management system, the Model manages:
+                </p>
+                <ul>
+                    <li>Item ID and barcode</li>
+                    <li>Warehouse location (aisle, shelf, bin)</li>
+                    <li>Quantity in stock and reorder threshold</li>
+                    <li>Supplier and purchase price</li>
+                    <li>Expiry date (for perishable goods)</li>
+                    <li>Movement history (in/out records)</li>
+                </ul>
+                <p><em>Example Application: Retail inventory systems, hospital supply management</em></p>
+            </article>
+
+            <article>
+                <h3>Example 7 — Event / Booking Data</h3>
+                <p>
+                    In a ticket booking or scheduling application, the Model handles:
+                </p>
+                <ul>
+                    <li>Event ID and name</li>
+                    <li>Date, time, and venue</li>
+                    <li>Available seats and total capacity</li>
+                    <li>Ticket types (VIP, General, Student)</li>
+                    <li>Booking reference and attendee details</li>
+                    <li>Cancellation and refund policies</li>
+                </ul>
+                <p><em>Example Application: BookMyShow, Eventbrite, hospital appointment systems</em></p>
+            </article>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Key Characteristics of a Well-Designed Model</h2>
+            <ul>
+                <li><strong>Independent:</strong> Has no knowledge of how data is displayed (View) or how requests arrive (Controller).</li>
+                <li><strong>Encapsulated:</strong> Hides internal data representation behind a clear interface.</li>
+                <li><strong>Consistent:</strong> Enforces data integrity rules at all times.</li>
+                <li><strong>Reusable:</strong> Can serve multiple Views or Controllers without modification.</li>
+                <li><strong>Testable:</strong> Can be unit-tested independently without needing a UI or HTTP requests.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Navigate to Other Components</h2>
+            <ul>
+                <li><a href="index.html">&larr; Back to Home</a></li>
+                <li><a href="view.html">Next: View Component &rarr;</a></li>
+                <li><a href="controller.html">Controller Component &rarr;</a></li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <hr>
+        <p>&copy; 2026 MVC Architecture Demonstration. All rights reserved.</p>
+        <p>Created as an educational resource for understanding software design patterns.</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="model.html">Model</a></li>
+                <li><a href="view.html">View</a></li>
+                <li><a href="controller.html">Controller</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+</body>
+</html>
